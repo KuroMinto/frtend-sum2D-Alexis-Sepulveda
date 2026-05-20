@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos y Condiciones - TechFix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="TechFix Logo" class="logo-img">TechFix</a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="ingreso.html">Ingresar equipo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 48px 16px; max-width: 750px; margin: 0 auto;">
+    <section class="form-section" style="border-left-color: #0b6efd;">
+      <h1>Términos y Condiciones</h1>
+      <p>Esta página contiene información ficticia creada únicamente con fines de testing y demostración del flujo de ingreso de equipo en TechFix.</p>
+      <p>Al completar el formulario de ingreso, el cliente acepta que los datos proporcionados son verídicos y que TechFix podrá utilizar esta información para gestionar el servicio técnico.</p>
+      <p>TechFix no realiza ninguna transacción real en este entorno de pruebas. El contenido de esta página no sustituye un documento legal real.</p>
+      <p>Para más información, visite el sitio principal o comuníquese con nuestro servicio de atención.</p>
+      <a class="btn btn-tertiary" href="index.html" style="margin-top: 20px; display: inline-block;">Volver al inicio</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html"><img src="images/logo.png" alt="TechFix Logo" class="logo-img">TechFix</a>
+      </div>
+      <div class="footer-info">
+        <h4>Contacto</h4>
+        <p>Email: contacto@techfix.example</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Dirección</h4>
+        <p>Calle Falsa 123, Ciudad</p>
+      </div>
+    </div>
+    <div class="container copyright" style="justify-content: center;">
+      <div>© <span id="year"></span> TechFix</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
