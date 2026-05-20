@@ -235,3 +235,52 @@ USO EN EL PROYECTO: El resultado es minimalista, pero satisfactorio y funciona.
 ------------------------------------------------------------
 REFLEXION PERSONAL: Fue útil, ya que obvia el trabajo de tener que crearlo uno mismo con el objetivo de testing.
 ============================================================
+
+============================================================ CONSULTA 7
+Etapa del proyecto: Etapa 3 Fecha: 20-05-26
+------------------------------------------------------------
+PROMPT ENVIADO A COPILOT:
+Ahora hay que implementar un archivo JS para hacer las validaciones, solo se debe utilizar JS nativo, nada externo, el nombre del archivo es "validaciones.js" el cual está vinculado a ingreso.html.
+
+Objetivo:
+Agregar el archivo validaciones.js que intercepte el envio del formulario, aplique todas las reglas de
+validacion y proporcione retroalimentacion visual inmediata. Si el formulario pasa todas las
+validaciones, debe mostrarse una pantalla de confirmacion de ingreso con un numero de orden
+generado aleatoriamente.
+
+Implementa, por ahora, validaciones solo para las siguientes 2 secciones:
+Seccion A — Datos del Cliente
+Campo Regla
+Nombre completo Solo letras y espacios. Minimo 5 caracteres, maximo 80.
+DNI Solo numeros. Entre 7 y 8 digitos.
+Correo electronico Formato valido con @ y dominio. Usar expresion regular.
+Confirmar correo Debe coincidir exactamente con el correo electronico.
+Telefono Solo digitos, guiones, espacios y signo mas (+). Minimo 8 digitos
+numericos.
+Tipo de cliente Debe seleccionarse una opcion. Si es "Empresa", el nombre de
+empresa y el CUIT no pueden estar vacios. El CUIT debe tener el
+formato ##-########-# (con guiones) o 11 digitos numericos
+seguidos.
+Provincia y Localidad Provincia: seleccion obligatoria. Localidad: no puede estar vacia,
+minimo 2 caracteres.
+Seccion B — Datos del Equipo
+Campo Regla
+Tipo de dispositivo Seleccion obligatoria. Si es "Otro", el campo de texto no puede estar
+vacio.
+Marca Seleccion obligatoria. Si es "Otra", el campo de texto no puede estar
+vacio.
+Modelo No puede estar vacio. Minimo 2 caracteres.
+Sistema operativo Seleccion obligatoria.
+Numero de orden (garantia) Si el checkbox de garantia esta marcado, el campo de numero de
+orden no puede estar vacio.
+
+Solo de esas 2 secciones, nada más.
+------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve):
+"Se creo validaciones.js, con las secciones A y B, ingreso CSS recibió estilos para
+.error-message, .confirmation-screen y retroalimentacion visual."
+------------------------------------------------------------
+USO EN EL PROYECTO: El resultado es satisfactorio, muestra las comprobaciones en el formulario al dar Submit
+------------------------------------------------------------
+REFLEXION PERSONAL: Bastante utilidad, así se implementa bastante rápido la lógica de validaciones.
+============================================================
