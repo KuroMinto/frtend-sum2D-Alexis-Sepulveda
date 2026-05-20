@@ -126,3 +126,96 @@ USO EN EL PROYECTO: El resultado fue lo que se buscaba, por lo que se utilizó s
 ------------------------------------------------------------
 REFLEXION PERSONAL: El prompt fue útil, ya que es una modificación menor no generó problemas al implementarla.
 ============================================================
+
+============================================================ CONSULTA 5
+Etapa del proyecto: Etapa 2 Fecha: 20-05-26
+------------------------------------------------------------
+PROMPT ENVIADO A COPILOT:
+Ahora nuestro objetivo es el siguiente:
+Crear la pagina ingreso.html con un formulario que permita al cliente registrar el ingreso de su
+equipo al servicio tecnico. El formulario debe recopilar datos del cliente, informacion del dispositivo,
+descripcion del problema y preferencias de contacto y entrega. Debe estar bien estructurado con
+semantica HTML5 y presentar un diseno responsivo.
+Debe también haber un archivo css llamado ingreso.css
+
+El formulario debe estar dividido en cuatro secciones claramente diferenciadas de forma visual.
+Seccion A — Datos del Cliente
+- Nombre completo (input text, requerido).
+- DNI (input text, requerido).
+- Correo electronico (input email, requerido).
+- Confirmar correo electronico (input email, requerido).
+- Telefono de contacto (input tel, requerido).
+- Tipo de cliente (radio buttons: Particular, Empresa). Si se elige "Empresa", mostrar un
+campo adicional para el nombre de la empresa y el CUIT.
+- Provincia (select con al menos 10 provincias argentinas, requerido).
+- Localidad (input text, requerido).
+Seccion B — Datos del Equipo
+- Tipo de dispositivo (select: Notebook, Computador de escritorio, Impresora, Tablet,
+Telefono movil, Otro, requerido). Si se elige "Otro", mostrar un campo de texto para
+especificar.
+- Marca (select con las marcas de la Etapa 1 mas la opcion "Otra", requerido). Si se elige
+"Otra", mostrar campo de texto.
+- Modelo (input text, requerido).
+- Numero de serie o IMEI (input text, opcional, con nota aclaratoria de donde encontrarlo).
+- Sistema operativo (select: Windows 10, Windows 11, macOS, Linux, Android, iOS, No
+aplica / No sabe, requerido).
+- El equipo tiene garantia vigente del fabricante (checkbox). Si esta marcado, mostrar campo
+de texto para ingresar el numero de orden de compra o fecha de compra.
+- El equipo contiene datos importantes sin respaldo (checkbox, con advertencia visible de
+que TechFix no se responsabiliza por perdida de datos).
+Seccion C — Descripcion del Problema
+- Tipo de problema principal (select: No enciende, Pantalla danada, Lentitud o rendimiento,
+Virus o malware, Problema de red o conectividad, Danio por liquido, Sonido, Otro,
+requerido).
+- Desde cuando ocurre el problema (select: Hoy, Hace algunos dias, Hace semanas, Hace
+meses, requerido).
+- El problema es permanente o intermitente (radio buttons: Permanente, Intermitente,
+requerido).
+- Descripcion detallada del problema (textarea, minimo 20 caracteres, maximo 500
+caracteres, con contador, requerido).
+- El cliente ya intento repararlo o lo llevo a otro tecnico (checkbox). Si esta marcado, mostrar
+textarea para que describa que se hizo anteriormente (opcional, maximo 300 caracteres,
+con contador).
+Seccion D — Preferencias de Entrega y Confirmacion
+- Modalidad de entrega del equipo (radio buttons: Lo llevo personalmente al local, Solicito
+retiro a domicilio, requerido). Si se elige retiro a domicilio, mostrar campo de texto con la
+direccion completa.
+- Presupuesto maximo autorizado sin consulta previa (select: Hasta $5.000, Hasta $15.000,
+Hasta $30.000, Sin limite, Necesito consultar antes de aprobar cualquier gasto, requerido).
+- Preferencia de contacto para notificaciones (checkboxes: WhatsApp, Correo electronico,
+Llamada telefonica). Al menos una debe seleccionarse.
+- Horario preferido para ser contactado (select: Manana 9 a 12, Tarde 12 a 17, Tarde-noche
+17 a 20, Indistinto, requerido).
+- El cliente acepta que el diagnostico puede demorar hasta 48 horas habiles (checkbox
+obligatorio).
+- Acepta los Terminos y Condiciones del servicio (checkbox obligatorio, con enlace a pagina
+ficticia).
+Botones de Accion
+- Boton principal "Registrar ingreso" (submit), centrado y con estilo destacado.
+- Boton secundario "Limpiar" (reset).
+- Enlace "Volver al inicio" que redirija a index.html.
+
+Los requisitos de estilo y accesibilidad son los siguientes:
+- Los campos deben cambiar visualmente al recibir el foco (:focus): borde con color y sombra
+suave.
+- Preparar las clases CSS "campo-error" (borde rojo) y "campo-ok" (borde verde) para la
+Etapa 3.
+- Las cuatro secciones deben estar visualmente separadas: fondo diferente, borde
+redondeado o titulo de seccion destacado.
+- El formulario debe estar centrado con un ancho maximo de 750 pixeles.
+- Diseno responsivo: dos columnas en desktop, una columna en mobile.
+- Todos los campos deben tener su etiqueta <label> asociada. Los requeridos deben
+marcarse con asterisco.
+- Los grupos de radio buttons y checkboxes deben estar dentro de <fieldset> con <legend>.
+------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve):
+"ingreso.html: 4 secciones organizadas, campos condicionales, validaciones, advertencias y botones.
+ingreso.css: 4 secciones diferenciadas, paleta de colores, efectos en :focus, clase de validación, grid layout, formulario centrado
+y tipografías."
+------------------------------------------------------------
+USO EN EL PROYECTO: Resultado bastante satisfactorio, se utilizó casi en su totalidad, ya que copilot se adelantó y creo el archivo
+de validaciones JS sin antes tener contexto de qué se pediría exactamente en este.
+------------------------------------------------------------
+REFLEXION PERSONAL: El prompt fue útil, pero copilot se adelantó y creo el archivo JS sin decirle qué esperar en este, quizás
+se podría especificar en el prompt que SOLO cree ingreso.html e ingreso.css, nada más.
+============================================================
