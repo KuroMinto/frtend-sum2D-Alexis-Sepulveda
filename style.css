@@ -13,7 +13,8 @@ body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;background:v
 
 .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.logo{font-family:Poppins,Inter,Arial,sans-serif;font-weight:700;color:var(--primary-dark);text-decoration:none;font-size:1.25rem}
+.logo{font-family:Poppins,Inter,Arial,sans-serif;font-weight:700;color:var(--primary-dark);text-decoration:none;font-size:1.25rem;display:flex;align-items:center;gap:8px}
+.logo-img{height:32px;width:auto}
 .main-nav a{margin-left:18px;color:var(--muted);text-decoration:none}
 .main-nav a.cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px}
 
@@ -42,8 +43,10 @@ body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;background:v
 /* Brands */
 .brands{padding:36px 0}
 .brands h2{font-family:Poppins,Inter,Arial,sans-serif;color:var(--primary-dark)}
-.brand-list{display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0;margin:12px 0 0}
-.brand-list li{background:#fff;padding:8px 12px;border-radius:8px;box-shadow:0 4px 12px rgba(10,20,40,0.04)}
+.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+.brand-item{background:#fff;padding:18px;border-radius:10px;box-shadow:0 4px 12px rgba(10,20,40,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.brand-item img{max-width:80px;height:auto;margin-bottom:10px}
+.brand-item p{margin:0;color:var(--muted);font-weight:500}
 
 /* Pricing table */
 .pricing{padding:36px 0}
@@ -74,12 +77,14 @@ tbody tr{border-bottom:1px solid rgba(11,110,253,0.04)}
 	.services-grid{grid-template-columns:repeat(2,1fr)}
 	.testimonials-grid{grid-template-columns:repeat(2,1fr)}
 	.footer-grid{grid-template-columns:1fr}
+	.brand-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:640px){
 	.services-grid{grid-template-columns:1fr}
 	.hero-content{flex-direction:column;align-items:flex-start}
 	.hero-trust{margin-top:18px}
 	.testimonials-grid{grid-template-columns:1fr}
+	.brand-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 

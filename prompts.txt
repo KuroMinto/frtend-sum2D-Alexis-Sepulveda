@@ -92,3 +92,37 @@ se pedían.
 REFLEXION PERSONAL: El prompt fue útil, personalmente no es una paleta de colores que yo ocuparía,
 pero al ser un proyecto ficticios para una empresa ficticios con parametros determinados, entonces es suficiente.
 ============================================================
+
+============================================================ CONSULTA 3
+Etapa del proyecto: Etapa 1 Fecha: 20-05-26
+------------------------------------------------------------
+PROMPT ENVIADO A COPILOT:
+Modifica la Seccion Marcas y Dispositivos Atendidos añadiendole los logos que se encuentra en la carpeta images.
+------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve):
+"Sección Marcas actualizada con logos de la carpeta images.
+Reemplazé la lista de texto en el index.html
+Cree una nueva clase .brand-grid con grid 4 clumnas, con flex layout, imagenes centradas y nombre.
+Estilo responsive, los logos están linkeados desde images y se mostrarán con el nombre de la marca debajo."
+------------------------------------------------------------
+USO EN EL PROYECTO: El resultado que entregó copilot fue bastante bueno, por lo que se utilizó en su mayoría, cambiando que en
+el apartado del logo de la impresora, copilot puso "canon" en vez de "Impresoras".
+------------------------------------------------------------
+REFLEXION PERSONAL: Bastante útil y rápido para implementar, el único problema es que se confunde algunas veces con la relación entre 
+las imágenes y el texto que va debajo, pero es algo menor que se puede solucionar fácilmente.
+============================================================
+
+============================================================ CONSULTA 4
+Etapa del proyecto: Etapa 1 Fecha: 20-05-26
+------------------------------------------------------------
+PROMPT ENVIADO A COPILOT:
+Agrega la imagen "logo" al lado del nombre de la compañia en la navbar
+------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve):
+"Se agregó el logo al lado del nombre TechFix en la navbar
+Imagen de 32px de altura, espaciado de 8px y alineación vertical centrada"
+------------------------------------------------------------
+USO EN EL PROYECTO: El resultado fue lo que se buscaba, por lo que se utilizó sin modificar.
+------------------------------------------------------------
+REFLEXION PERSONAL: El prompt fue útil, ya que es una modificación menor no generó problemas al implementarla.
+============================================================
