@@ -52,6 +52,38 @@ function validarCuit(valor) {
   return /^\d{2}-\d{8}-\d$/.test(texto) || /^\d{11}$/.test(texto);
 }
 
+function validarSelect(elemento) {
+  return elemento.value.trim() !== '';
+}
+
+function validarRadioGroup(nombre) {
+  return !!document.querySelector(`input[name="${nombre}"]:checked`);
+}
+
+function validarLongitudMinMax(valor, min, max) {
+  const longitud = valor.trim().length;
+  return longitud >= min && longitud <= max;
+}
+
+function mostrarErrorContenedor(elemento, mensaje) {
+  const contenedor = elemento.closest('fieldset') || elemento.parentElement;
+  let mensajeElemento = contenedor.querySelector('.error-message');
+  if (!mensajeElemento) {
+    mensajeElemento = document.createElement('span');
+    mensajeElemento.className = 'error-message';
+    contenedor.appendChild(mensajeElemento);
+  }
+  mensajeElemento.textContent = mensaje;
+}
+
+function limpiarErrorContenedor(elemento) {
+  const contenedor = elemento.closest('fieldset') || elemento.parentElement;
+  const mensajeElemento = contenedor.querySelector('.error-message');
+  if (mensajeElemento) {
+    mensajeElemento.remove();
+  }
+}
+
 function generarNumeroOrden() {
   const numero = Math.floor(100000 + Math.random() * 900000);
   return `TFX-${numero}`;
@@ -238,6 +270,129 @@ function validarSeccionB() {
   return valido;
 }
 
+function validarSeccionC() {
+  let valido = true;
+
+  const tipoProblema = document.getElementById('tipo-problema');
+  const tiempoProblema = document.getElementById('tiempo-problema');
+  const permanencia = validarRadioGroup('tipo-problema-permanencia');
+  const descripcionProblema = document.getElementById('descripcion-problema');
+  const intentoAnterior = document.getElementById('intento-anterior');
+  const reparacionAnterior = document.getElementById('reparacion-anterior');
+
+  if (!validarSelect(tipoProblema)) {
+    mostrarError(tipoProblema, 'Seleccione un tipo de problema.');
+    valido = false;
+  } else {
+    mostrarOk(tipoProblema);
+  }
+
+  if (!validarSelect(tiempoProblema)) {
+    mostrarError(tiempoProblema, 'Seleccione desde cuándo ocurre el problema.');
+    valido = false;
+  } else {
+    mostrarOk(tiempoProblema);
+  }
+
+  if (!permanencia) {
+    mostrarErrorContenedor(document.querySelector('input[name="tipo-problema-permanencia"]'), 'Seleccione si el problema es permanente o intermitente.');
+    valido = false;
+  } else {
+    limpiarErrorContenedor(document.querySelector('input[name="tipo-problema-permanencia"]'));
+  }
+
+  if (!validarLongitudMinMax(descripcionProblema.value, 20, 500)) {
+    mostrarError(descripcionProblema, 'Descripción obligatoria, entre 20 y 500 caracteres.');
+    valido = false;
+  } else {
+    mostrarOk(descripcionProblema);
+  }
+
+  if (intentoAnterior.checked) {
+    if (reparacionAnterior.value.trim().length > 300) {
+      mostrarError(reparacionAnterior, 'El texto no puede superar los 300 caracteres.');
+      valido = false;
+    } else {
+      mostrarOk(reparacionAnterior);
+    }
+  } else {
+    limpiarEstado(reparacionAnterior);
+  }
+
+  return valido;
+}
+
+function validarSeccionD() {
+  let valido = true;
+
+  const modalidadEntrega = validarRadioGroup('modalidad-entrega');
+  const direccionRetiro = document.getElementById('direccion-retiro');
+  const presupuesto = document.getElementById('presupuesto-maximo');
+  const contactoWhatsApp = document.querySelector('input[name="contacto-metodo"][value="whatsapp"]');
+  const contactoEmail = document.querySelector('input[name="contacto-metodo"][value="email"]');
+  const contactoLlamada = document.querySelector('input[name="contacto-metodo"][value="llamada"]');
+  const horario = document.getElementById('horario-preferido');
+  const aceptaDiagnostico = document.getElementById('acepta-diagnostico');
+  const aceptaTerminos = document.getElementById('acepta-terminos');
+
+  if (!modalidadEntrega) {
+    mostrarErrorContenedor(document.querySelector('input[name="modalidad-entrega"]'), 'Seleccione una modalidad de entrega.');
+    valido = false;
+  } else {
+    limpiarErrorContenedor(document.querySelector('input[name="modalidad-entrega"]'));
+  }
+
+  const retiroSeleccionado = document.querySelector('input[name="modalidad-entrega"]:checked')?.value === 'retiro';
+  if (retiroSeleccionado) {
+    if (!validarLongitudMinMax(direccionRetiro.value, 10, 200)) {
+      mostrarError(direccionRetiro, 'Dirección de retiro obligatoria, mínimo 10 caracteres.');
+      valido = false;
+    } else {
+      mostrarOk(direccionRetiro);
+    }
+  } else {
+    limpiarEstado(direccionRetiro);
+  }
+
+  if (!validarSelect(presupuesto)) {
+    mostrarError(presupuesto, 'Seleccione un presupuesto autorizado.');
+    valido = false;
+  } else {
+    mostrarOk(presupuesto);
+  }
+
+  const contactoSeleccionado = contactoWhatsApp.checked || contactoEmail.checked || contactoLlamada.checked;
+  if (!contactoSeleccionado) {
+    mostrarErrorContenedor(contactoWhatsApp, 'Seleccione al menos una preferencia de contacto.');
+    valido = false;
+  } else {
+    limpiarErrorContenedor(contactoWhatsApp);
+  }
+
+  if (!validarSelect(horario)) {
+    mostrarError(horario, 'Seleccione un horario de contacto.');
+    valido = false;
+  } else {
+    mostrarOk(horario);
+  }
+
+  if (!aceptaDiagnostico.checked) {
+    mostrarError(aceptaDiagnostico, 'Debe aceptar el diagnóstico hasta 48 horas hábiles.');
+    valido = false;
+  } else {
+    mostrarOk(aceptaDiagnostico);
+  }
+
+  if (!aceptaTerminos.checked) {
+    mostrarError(aceptaTerminos, 'Debe aceptar los Términos y Condiciones.');
+    valido = false;
+  } else {
+    mostrarOk(aceptaTerminos);
+  }
+
+  return valido;
+}
+
 function validarCampoAlIngresar(campo, validador) {
   campo.addEventListener('input', function() {
     if (!this.value.trim()) {
@@ -278,17 +433,28 @@ document.addEventListener('DOMContentLoaded', function() {
   validarCampoAlIngresar(document.getElementById('orden-compra'), function(valor) {
     return valor.trim().length > 0;
   });
+  validarCampoAlIngresar(document.getElementById('descripcion-problema'), function(valor) {
+    return validarLongitudMinMax(valor, 20, 500);
+  });
+  validarCampoAlIngresar(document.getElementById('reparacion-anterior'), function(valor) {
+    return valor.trim().length <= 300;
+  });
+  validarCampoAlIngresar(document.getElementById('direccion-retiro'), function(valor) {
+    return valor.trim().length >= 10;
+  });
 
   formulario.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const validoA = validarSeccionA();
     const validoB = validarSeccionB();
+    const validoC = validarSeccionC();
+    const validoD = validarSeccionD();
 
-    if (validoA && validoB) {
+    if (validoA && validoB && validoC && validoD) {
       mostrarConfirmacion(formulario);
     } else {
-      const primerError = document.querySelector('.campo-error');
+      const primerError = document.querySelector('.campo-error, .error-message');
       if (primerError) {
         primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }

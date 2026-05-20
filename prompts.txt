@@ -284,3 +284,37 @@ USO EN EL PROYECTO: El resultado es satisfactorio, muestra las comprobaciones en
 ------------------------------------------------------------
 REFLEXION PERSONAL: Bastante utilidad, así se implementa bastante rápido la lógica de validaciones.
 ============================================================
+
+============================================================ CONSULTA 8
+Etapa del proyecto: Etapa 3 Fecha: 20-05-26
+------------------------------------------------------------
+PROMPT ENVIADO A COPILOT:
+AHora haz estas secciones:
+
+Seccion C — Descripcion del Problema
+Campo Regla
+Tipo de problema Seleccion obligatoria.
+Desde cuando Seleccion obligatoria.
+Permanente o intermitente Debe seleccionarse una opcion de radio button
+Descripcion detallada No puede estar vacia. Minimo 20 caracteres, maximo 500.
+Reparacion previa (textarea) Solo se valida si el checkbox esta marcado. No puede superar los 300
+caracteres.
+Seccion D — Entrega y Confirmacion
+Campo Regla
+Modalidad de entrega Debe seleccionarse una opcion. Si es "Retiro a domicilio", la direccion
+no puede estar vacia (minimo 10 caracteres).
+Presupuesto autorizado Seleccion obligatoria.
+Preferencia de contacto Al menos una opcion debe estar marcada.
+Horario de contacto Seleccion obligatoria.
+Checkbox de diagnostico y
+Terminos
+Ambos checkboxes son obligatorios. Mostrar mensaje especifico para
+cada uno que falte.
+------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve):
+"Agregué lo pedido en la seccion C y D."
+------------------------------------------------------------
+USO EN EL PROYECTO: Creó satisfactoriamente las secciones D y C.
+------------------------------------------------------------
+REFLEXION PERSONAL: Bastante utilidad, así se implementa bastante rápido la lógica de validaciones.
+============================================================
